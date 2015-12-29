@@ -1,20 +1,19 @@
 package com.osudevelopers.seatallocation;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TableRow;
+import android.widget.TextView;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    EditText edit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,16 +21,32 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+    }
 
-        edit = (EditText) findViewById(R.id.edittext);
+    // 「APPLY Button」押下時に「The number of people EditText」に
+    // 入力されている数分だけ、メンバー入力行を追加
+    public void applyNumber(View view) {
+
+        TextView number = (TextView) findViewById(R.id.number);
+        int num = Integer.parseInt(number.getText().toString());
+
+        // TableLayoutのグループを取得
+        ViewGroup vg = (ViewGroup) findViewById(R.id.TableLayout);
+
+        // 表示済のメンバー入力行を全削除
+        vg.removeAllViews();
+
+        // 「The number of people EditText」に入力した数値分、メンバー入力行を追加
+        for (int i = 0; i < num; i++) {
+            // 行を追加
+            getLayoutInflater().inflate(R.layout.table_row, vg);
+
+            // 追加した行に存在する部品の文字設定
+            TableRow tr = (TableRow) vg.getChildAt(i);
+            String str = String.format(Locale.getDefault(), "Member %d", i + 1);
+            ((EditText)(tr.getChildAt(0))).setText(str);
+
+        }
     }
 
     @Override
@@ -54,11 +69,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-
-    public void textTest(View view){
-        Toast.makeText(MainActivity.this, edit.getText(), Toast.LENGTH_LONG).show();
     }
 
 
