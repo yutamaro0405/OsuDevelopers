@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         TextView number = (TextView) findViewById(R.id.number);
         int num = Integer.parseInt(number.getText().toString());
+
+        if (!(0<=num && num<100)){
+            Toast.makeText(this, "人数が多すぎるため処理できません", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // TableLayoutのグループを取得
         ViewGroup vg = (ViewGroup) findViewById(R.id.TableLayout);
