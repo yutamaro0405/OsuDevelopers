@@ -7,8 +7,8 @@
     android:layout_height="wrap_content"
     android:layout_weight="1"
     android:orientation="vertical"
-    tools:context="com.osudevelopers.seatallocation.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context=".CarPeoplesActivity"
+    tools:showIn="@layout/activity_car_peoples">
 
     <LinearLayout
         android:layout_width="wrap_content"
