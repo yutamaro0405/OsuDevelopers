@@ -34,6 +34,11 @@ public class CarCar {
      * 座席ハッシュ
      */
     private HashSet<Integer> seatHash;
+    /**
+     * 座席と人のマッピング
+     */
+    private HashMap<Integer,CarPeople> seatMap;
+
 
     /**
      * コンストラクタ
@@ -75,9 +80,7 @@ public class CarCar {
      * @param index 座席番号(ドライバは0、助手席は1)
      * @return 座標
      */
-    public CarCoordinate getCoordinate(int index){
-       return carLayout.get(index);
-   }
+    public CarCoordinate getCoordinate(int index){return carLayout.get(index);}
 
     /**
      * 最大の座席座標を取得する
@@ -91,9 +94,7 @@ public class CarCar {
      * 積載人数を取得する
      * @return 積載人数
      */
-    public int getLoadPeople(){
-        return loadPeople;
-    }
+    public int getLoadPeople(){return loadPeople;}
 
     /**
      * 座席座標のハッシュを求める
@@ -101,6 +102,65 @@ public class CarCar {
      */
     private int getCoordinateHash(CarCoordinate cc){
         return cc.row*maxRow+cc.column;
+    }
+
+    /**
+     * ドライバーを追加･更新する
+     * @param p ドライバー
+     */
+    public void addDriver(CarPeople p) throws CarException {
+        addPassenger(0,p);
+    }
+
+    /**
+     * 乗客を追加・更新する
+     * @param index 座席番号
+     * @param p 乗員
+     */
+    public void addPassenger(int index, CarPeople p) throws CarException {
+        if(carLayout.containsKey(index)){
+            seatMap.put(index,p);
+        }else{
+            throw new CarException("乗車不可能な場所に乗車しようとした");
+        }
+    }
+
+    /**
+     * 初期化する
+     * @return 初期化されて追い出された乗員
+     */
+    public HashSet<CarPeople> refreshPeople(){
+        HashSet<CarPeople> output=new HashSet<>();
+        for(int index:seatMap.keySet()){
+            output.add(seatMap.get(index));
+        }
+        seatMap.clear();
+        return output;
+    }
+
+
+    /**
+     *     次に埋めるべき座席を返す
+     */
+    public int getNextIndex() {
+        int index=-1;
+        for(int i:carLayout.keySet()){
+            if(seatMap.containsKey(i)){
+
+            }else{
+                index=i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    /**
+     * ドライバ情報を取得する
+     * @return ドライバ
+     */
+    public CarPeople getDriver() {
+        return seatMap.get(0);
     }
 }
 
