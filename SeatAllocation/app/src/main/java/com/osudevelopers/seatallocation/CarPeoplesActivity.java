@@ -1,5 +1,6 @@
 package com.osudevelopers.seatallocation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,9 +13,11 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Locale;
 
-public class CarPeoplesActivity extends AppCompatActivity {
+public class CarPeoplesActivity extends AppCompatActivity implements Serializable{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,9 @@ public class CarPeoplesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_car_peoples);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        ArrayList<CarCar> listCar = (ArrayList<CarCar>) intent.getSerializableExtra(CarSelectionActivity.EXTRA_LISTCAR);
 
     }
 
