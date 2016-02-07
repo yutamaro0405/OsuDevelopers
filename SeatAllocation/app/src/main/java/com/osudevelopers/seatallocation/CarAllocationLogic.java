@@ -20,6 +20,18 @@ public class CarAllocationLogic {
         /**
          * メインロジック
          */
+        if(input==null){
+            throw new CarException("車が定義されていません(null)");
+        }
+        if(input.size()==0){
+            throw new CarException("車が定義されていません(0)");
+        }
+        if(people==null){
+            throw new CarException("人が定義されていません(null)");
+        }
+        if(people.size()==0){
+            throw new CarException("人が定義されていません(0)");
+        }
         allocateEquality(input,people);
         return input;
     }
@@ -43,6 +55,13 @@ public class CarAllocationLogic {
             }else{
                 passengers.add(p);
             }
+        }
+
+        /**
+         * ドライバが足りない場合例外
+         */
+        if(drivers.size()<input.size()){
+            throw new CarException("ドライバが足りません");
         }
 
 /**

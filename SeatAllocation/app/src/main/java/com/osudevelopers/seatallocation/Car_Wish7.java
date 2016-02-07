@@ -1,10 +1,12 @@
 package com.osudevelopers.seatallocation;
 
+import java.io.Serializable;
+
 /**
  * 7人乗りWishオブジェクトクラス
  * Created by chilly on 2016/01/10.
  */
-public class Car_Wish7 extends CarCar{
+public class Car_Wish7 extends CarCar implements Serializable {
     /**
      * 7人乗りWishコンストラクタ
      *

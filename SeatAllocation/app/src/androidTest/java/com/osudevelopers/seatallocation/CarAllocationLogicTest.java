@@ -77,39 +77,39 @@ public class CarAllocationLogicTest extends ApplicationTestCase<Application> {
 
         //車も人も居ないときはException
         reflesh();
-        checkException();
+        checkException("車が定義されていません(0)");
         //車しか居ないときもException
         reflesh();
         input.add(c1);
-        checkException();
+        checkException("人が定義されていません(0)");
         //人しか居ないときもException
         reflesh();
         people.add(p2);
-        checkException();
+        checkException("車が定義されていません(0)");
         //ドライバが居ないときもException
         reflesh();
         input.add(c1);
         people.add(p1);
         people.add(p3);
         people.add(p4);
-        checkException();
+        checkException("ドライバが足りません");
         //人が多すぎてもException
         people.add(p2);
         people.add(p6);
         people.add(p7);
-        checkException();
+        checkException("人が多すぎます");
         //ドライバが少なくてもException
         input.add(c3);
-        checkException();
+        checkException("ドライバが足りません");
         //同じ車が存在するとException
         input.add(c3);
-        checkException();
+        checkException("同じ車が存在します");
         //同じ人が存在するとException
         input=new ArrayList<>();
         input.add(c1);
         input.add(c3);
         people.add(p2);
-        checkException();
+        checkException("同じ人が存在します");
         for (int i = 0; i < 99999; i++) {
             reflesh();
             int carnum=(int)(Math.random()*15.0+1.0);
@@ -179,11 +179,16 @@ public class CarAllocationLogicTest extends ApplicationTestCase<Application> {
         return null;
     }
 
-    private void checkException() {
+    private void checkException(String message) {
         try {
             CarAllocationLogic.exec(input, people);
             fail();
         } catch (CarException e) {
+            if(e.getMessage().equals(message)){
+
+            }else{
+                fail();
+            }
         }
 
     }

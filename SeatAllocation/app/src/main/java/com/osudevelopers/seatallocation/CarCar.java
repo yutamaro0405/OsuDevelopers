@@ -1,5 +1,6 @@
 package com.osudevelopers.seatallocation;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -7,7 +8,7 @@ import java.util.HashSet;
  * 車の基本クラス
  * Created by chilly on 2016/01/10.
  */
-public class CarCar {
+public class CarCar implements Serializable{
     /**
      * 車名
      */
@@ -53,6 +54,7 @@ public class CarCar {
         this.maxRow=maxRow;
         this.maxColumn=maxColumn;
         seatHash=new HashSet<>();
+        seatMap=new HashMap<>();
         carLayout=new HashMap<>();
     }
 
