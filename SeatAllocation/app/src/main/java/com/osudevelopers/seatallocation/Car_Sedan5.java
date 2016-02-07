@@ -1,10 +1,12 @@
 package com.osudevelopers.seatallocation;
 
+import java.io.Serializable;
+
 /**
  * 5人乗りセダンオブジェクトクラス
  * Created by chilly on 2016/01/10.
  */
-public class Car_Sedan5 extends CarCar{
+public class Car_Sedan5 extends CarCar implements Serializable{
     /**
      * 5人乗りセダンオブジェクトクラス
      *
