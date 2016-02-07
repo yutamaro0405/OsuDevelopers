@@ -13,7 +13,7 @@ import android.widget.Spinner;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CarSelectionActivity extends AppCompatActivity implements Serializable{
+public class CarSelectionActivity extends AppCompatActivity{
     public final static String EXTRA_LISTCAR = "com.osudevelopers.seatallocation.LISTCAR";
 
     @Override
@@ -29,7 +29,6 @@ public class CarSelectionActivity extends AppCompatActivity implements Serializa
         ArrayList<CarCar> listCar = new ArrayList<CarCar>();
         Spinner spinner5 = (Spinner) findViewById(R.id.spinner5);
         int num5 = Integer.parseInt((String)spinner5.getSelectedItem());
-        listCar.add(new Car_Sedan5());
         for(int i=0; i < num5; i++){
             listCar.add(new Car_Sedan5());
         }
@@ -40,7 +39,7 @@ public class CarSelectionActivity extends AppCompatActivity implements Serializa
         }
 
 
-        Intent intent = new Intent(this, CarPeoplesActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CarPeoplesActivity.class);
         intent.putExtra(EXTRA_LISTCAR, listCar);
         startActivity(intent);
     }
