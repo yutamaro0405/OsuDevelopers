@@ -13,7 +13,7 @@ import android.widget.Spinner;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CarSelectionActivity extends AppCompatActivity{
+public class CarSelectionActivity extends AppCompatActivity implements Serializable{
     public final static String EXTRA_LISTCAR = "com.osudevelopers.seatallocation.LISTCAR";
 
     @Override
@@ -39,7 +39,7 @@ public class CarSelectionActivity extends AppCompatActivity{
         }
 
 
-        Intent intent = new Intent(getApplicationContext(), CarPeoplesActivity.class);
+        Intent intent = new Intent(this, CarPeoplesActivity.class);
         intent.putExtra(EXTRA_LISTCAR, listCar);
         startActivity(intent);
     }

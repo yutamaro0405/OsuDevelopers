@@ -17,7 +17,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class CarPeoplesActivity extends AppCompatActivity implements Serializable{
+public class CarPeoplesActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
