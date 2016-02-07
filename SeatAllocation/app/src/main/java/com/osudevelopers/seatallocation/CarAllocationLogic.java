@@ -15,7 +15,7 @@ public class CarAllocationLogic {
      * @return 結果
      * @throws CarException 異常時
      */
-    public ArrayList<CarCar> exec(ArrayList<CarCar> input,ArrayList<CarPeople> people) throws CarException {
+    public static ArrayList<CarCar> exec(ArrayList<CarCar> input, ArrayList<CarPeople> people) throws CarException {
         ArrayList<CarCar> output;
         /**
          * メインロジック
@@ -24,7 +24,7 @@ public class CarAllocationLogic {
         return input;
     }
 
-    private void allocateEquality(ArrayList<CarCar> input, ArrayList<CarPeople> people) throws CarException {
+    private static void allocateEquality(ArrayList<CarCar> input, ArrayList<CarPeople> people) throws CarException {
         /**
          * ドライバ候補
          */
@@ -128,7 +128,7 @@ public class CarAllocationLogic {
      * @param size 最大値
      * @return 乱数
      */
-    private int getRandom(int size) {
+    private static int getRandom(int size) {
         //TODO 検証：乱数の妥当性
         return (int)(Math.random()*size);
     }

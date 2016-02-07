@@ -52,7 +52,7 @@ public class CarCar {
         this.loadPeople=loadPeople;
         this.maxRow=maxRow;
         this.maxColumn=maxColumn;
-
+        seatHash=new HashSet<>();
         carLayout=new HashMap<>();
     }
 
@@ -162,6 +162,18 @@ public class CarCar {
     public CarPeople getDriver() {
         return seatMap.get(0);
     }
+
+    /**
+     * 座席情報を返す
+     * @return 座席情報
+     */
+    public HashMap<Integer,CarPeople> getSeatMap(){return seatMap;}
+
+    /**
+     * 名称を返す
+     * @return 名称
+     */
+    public String getName(){return name;}
 }
 
 class CarCoordinate{
