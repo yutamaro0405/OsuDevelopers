@@ -178,7 +178,7 @@ public class CarCar implements Serializable{
     public String getName(){return name;}
 }
 
-class CarCoordinate{
+class CarCoordinate implements Serializable{
     /**
      * 座標(横方向)
      */
