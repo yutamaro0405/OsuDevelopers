@@ -178,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:background="#1E90FF"
                 android:onClick="goCarPeoples"
-                android:text="乗車人数を決める"
+                android:text="Select Passengers#"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
