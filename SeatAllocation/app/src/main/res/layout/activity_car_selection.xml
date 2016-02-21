@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
-            android:text=" 1.車の台数を選択\n 2.最下部のボタンを押す"
+            android:text=" 1.Select Number of Cars\n 2.Push Bottom Button"
             android:textColor="@color/colorAccent"
             android:textSize="24sp"/>
 
@@ -72,14 +72,14 @@
                             android:id="@+id/name5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="5人乗り"
+                            android:text="5-Seater"
                             android:textSize="24sp"/>
 
                         <TextView
                             android:id="@+id/loc5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="前から2人・3人"
+                            android:text="2-3 from the front"
                             android:textColor="#999999"
                             android:textSize="16sp"/>
                     </LinearLayout>
@@ -92,7 +92,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="24dp"
                         android:gravity="center"
-                        android:text="台数:"
+                        android:text="Cars#:"
                         android:textSize="24dp"/>
 
 
@@ -129,14 +129,14 @@
                             android:id="@+id/name7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="7乗り"
+                            android:text="7-Seater"
                             android:textSize="24sp"/>
 
                         <TextView
                             android:id="@+id/loc7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="前から2人・3人・3人"
+                            android:text="2-3-3 from the front"
                             android:textColor="#999999"
                             android:textSize="16sp"/>
                     </LinearLayout>
@@ -150,7 +150,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginLeft="24dp"
                             android:gravity="center"
-                            android:text="台数:"
+                            android:text="Cars#:"
                             android:textSize="24dp"/>
 
 
