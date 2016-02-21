@@ -28,10 +28,12 @@
             android:name=".CarPeoplesActivity"
             android:label="@string/title_activity_car_peoples"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
-
-
+        <activity
+            android:name=".ResultActivity"
+            android:label="@string/title_activity_result"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
