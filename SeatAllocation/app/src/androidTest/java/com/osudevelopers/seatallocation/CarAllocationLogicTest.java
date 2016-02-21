@@ -112,7 +112,8 @@ public class CarAllocationLogicTest extends ApplicationTestCase<Application> {
         checkException("同じ人が存在します");
         for (int i = 0; i < 99999; i++) {
             reflesh();
-            int carnum=(int)(Math.random()*15.0+1.0);
+            int carnum=(int)(Math.random()*15.0+1.1);
+            if(carnum<1){carnum=1;}
             if(carnum>8){
                 input.add(c1);
                 carnum=carnum-8;
@@ -128,14 +129,17 @@ public class CarAllocationLogicTest extends ApplicationTestCase<Application> {
             if(carnum==1){
                 input.add(c4);
             }
+            if(input.size()<1){input.add(c4);}
             carnum=0;
             for(CarCar c:input){
                 carnum=carnum+c.getLoadPeople();
             }
 
             carnum=(int)(Math.random()*carnum+1.0);
+            System.out.println("caenum"+carnum);
             HashSet<CarPeople> peoples=new HashSet<>();
-            while(peoples.size()==carnum){
+            if(carnum>=21){carnum=20;}
+            while(peoples.size()<carnum||peoples.size()<input.size()){
                 if(peoples.size()<input.size()){
                     peoples.add(getRandomMember(driver));
                 }else{
@@ -143,17 +147,19 @@ public class CarAllocationLogicTest extends ApplicationTestCase<Application> {
                 }
             }
             people.addAll(peoples);
-            CarAllocationLogic.exec(input, people);
+            System.out.println(input.size());
+            System.out.println(people.size());
+            System.out.println(input);
+            System.out.println(people);
+            CarAllocationLogic.exec(getContext(),input, people);
             int ps=0;
             HashSet<CarPeople> hs=new HashSet<>();
             for(CarCar c:input){
                 ps=ps+c.getSeatMap().size();
                 //ドライバがドライバ席に乗っているか
                 assertTrue(c.getDriver().isDriver);
-                //車の中身表示
-                System.out.println(c.getName());
-                for(int idx:c.getSeatMap().keySet()){
-                    System.out.println(idx + "," + c.getSeatMap().get(idx));
+                for(int k:c.getSeatMap().keySet()){
+                    hs.add(c.getSeatMap().get(k));
                 }
             }
             //車に乗っている人が人数と一致するか
@@ -181,7 +187,7 @@ public class CarAllocationLogicTest extends ApplicationTestCase<Application> {
 
     private void checkException(String message) {
         try {
-            CarAllocationLogic.exec(input, people);
+            CarAllocationLogic.exec(getContext(),input, people);
             fail();
         } catch (CarException e) {
             if(e.getMessage().equals(message)){
