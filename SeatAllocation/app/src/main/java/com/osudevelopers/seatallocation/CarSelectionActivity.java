@@ -34,10 +34,9 @@ public class CarSelectionActivity extends AppCompatActivity implements Serializa
         }
         Spinner spinner7 = (Spinner) findViewById(R.id.spinner7);
         int num7 = Integer.parseInt((String)spinner7.getSelectedItem());
-        for(int i=0; i < num7; i++){
+        for(int i=0; i < num7; i++) {
             listCar.add(new Car_Wish7());
         }
-
 
         Intent intent = new Intent(this, CarPeoplesActivity.class);
         intent.putExtra(EXTRA_LISTCAR, listCar);
