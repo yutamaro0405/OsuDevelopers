@@ -38,7 +38,13 @@ public class CarPeoplesActivity extends AppCompatActivity{
     public void applyNumber(View view) {
 
         TextView number = (TextView) findViewById(R.id.number);
-        int num = Integer.parseInt(number.getText().toString());
+        int num=-1;
+        try {
+            num = Integer.parseInt(number.getText().toString());
+        }catch (NumberFormatException e){
+            Toast.makeText(this, "人数が入力されていません", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         if (!(0<=num && num<100)){
             Toast.makeText(this, "人数が多すぎるため処理できません", Toast.LENGTH_SHORT).show();
@@ -71,9 +77,6 @@ public class CarPeoplesActivity extends AppCompatActivity{
         ArrayList<CarCar> result=null;
         ArrayList<CarPeople> peoples=new ArrayList<>();
         try {
-            TextView memberName = (TextView) findViewById(R.id.memberName);
-            TextView possibleDriver = (TextView) findViewById(R.id.possibleDriver);
-
             // TableLayoutのグループを取得
             ViewGroup vg = (ViewGroup) findViewById(R.id.TableLayout);
             //行ごとに人を登録する
