@@ -8,16 +8,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class CarPeoplesActivity extends AppCompatActivity{
+
+    ArrayList<CarCar> listCar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class CarPeoplesActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
-        ArrayList<CarCar> listCar = (ArrayList<CarCar>) intent.getSerializableExtra(CarSelectionActivity.EXTRA_LISTCAR);
+        listCar = (ArrayList<CarCar>) intent.getSerializableExtra(CarSelectionActivity.EXTRA_LISTCAR);
 
     }
 
@@ -64,8 +66,35 @@ public class CarPeoplesActivity extends AppCompatActivity{
 
 
     public void seatAllocate(View view){
+
+        //いろいろ詰めて次の画面に渡す
+        ArrayList<CarCar> result=null;
+        ArrayList<CarPeople> peoples=new ArrayList<>();
+        try {
+            TextView memberName = (TextView) findViewById(R.id.memberName);
+            TextView possibleDriver = (TextView) findViewById(R.id.possibleDriver);
+
+            // TableLayoutのグループを取得
+            ViewGroup vg = (ViewGroup) findViewById(R.id.TableLayout);
+            //行ごとに人を登録する
+            for(int i=0;i<vg.getChildCount();i++){
+                TableRow row = (TableRow)vg.getChildAt(i);
+                EditText name = (EditText)(row.getChildAt(0));
+                CheckBox isDriver=(CheckBox)(row.getChildAt(1));
+                peoples.add(new CarPeople(name.getText().toString(), isDriver.isChecked()));
+            }
+            //ロジック実行
+            result=CarAllocationLogic.exec(this, listCar, peoples);
+        }catch(CarException carException){
+            //エラー通知して次画面にいかない
+            Toast.makeText(this, "エラー："+carException.getMessage(), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        //結果を次画面に渡す
         Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra(CarSelectionActivity.EXTRA_LISTCAR, result);
         startActivity(intent);
+
     }
 
     @Override
