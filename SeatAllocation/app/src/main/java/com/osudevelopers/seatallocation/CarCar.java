@@ -146,7 +146,8 @@ public class CarCar implements Serializable{
      */
     public int getNextIndex() {
         int index=-1;
-        for(int i:carLayout.keySet()){
+
+        for(int i=0;i<carLayout.keySet().size();i++){
             if(seatMap.containsKey(i)){
 
             }else{
