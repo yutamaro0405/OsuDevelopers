@@ -23,7 +23,7 @@
                 android:id="@+id/name1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/border"
+                android:background="#00000000"
                 android:gravity="center"
                 android:text=""/>
         </FrameLayout>
@@ -39,7 +39,7 @@
                 android:id="@+id/name2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/border"
+                android:background="#00000000"
                 android:gravity="center"
                 android:text=""/>
         </FrameLayout>
@@ -55,7 +55,7 @@
                 android:id="@+id/name3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/border"
+                android:background="#00000000"
                 android:gravity="center"
                 android:text=""/>
         </FrameLayout>

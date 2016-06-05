@@ -1,5 +1,7 @@
 package com.osudevelopers.seatallocation;
 
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -33,6 +35,11 @@ public class ResultFragment extends Fragment {
             //sss.setText(car.getCoordinate());
         }
 
+        GradientDrawable border = new GradientDrawable();
+        border.setColor(0x00000000); //white background
+        border.setStroke(1, 0xFF000000); //black border with full opacity
+        border.setCornerRadius(50);
+
         for (int i = 0; i < car.getLoadPeople(); i++) {
             CarCoordinate coordinate = car.getCoordinate(i);
             LinearLayout tr = (LinearLayout) vg.getChildAt(coordinate.getColumn());
@@ -49,6 +56,7 @@ public class ResultFragment extends Fragment {
                     break;
             }
             CarPeople cp = car.getSeatMap().get(i);
+
             if (cp == null) {
                 tv.setText("");
 
@@ -56,10 +64,12 @@ public class ResultFragment extends Fragment {
                 tv.setText(cp.name);
 
             }
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                tv.setBackground(border);
+            } else {
+                tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
+            }
         }
-
-
         return root;
     }
 }
