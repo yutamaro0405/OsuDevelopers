@@ -21,11 +21,12 @@
             app:layout_widthPercent="33.333333%">
 
             <TextView
+                android:id="@+id/name1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/border"
                 android:gravity="center"
-                android:text="Hello"/>
+                android:text=""/>
         </FrameLayout>
 
         <FrameLayout
@@ -36,11 +37,12 @@
             app:layout_widthPercent="33.333333%">
 
             <TextView
+                android:id="@+id/name2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/border"
                 android:gravity="center"
-                android:text="Hello"/>
+                android:text=""/>
         </FrameLayout>
 
         <FrameLayout
@@ -51,11 +53,12 @@
             app:layout_widthPercent="33.333333%">
 
             <TextView
+                android:id="@+id/name3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/border"
                 android:gravity="center"
-                android:text="Hello"/>
+                android:text=""/>
         </FrameLayout>
     </android.support.percent.PercentRelativeLayout>
 </LinearLayout>

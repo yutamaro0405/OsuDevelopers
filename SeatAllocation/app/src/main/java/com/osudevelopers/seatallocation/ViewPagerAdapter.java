@@ -1,5 +1,6 @@
 package com.osudevelopers.seatallocation;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -23,9 +24,14 @@ class ViewPagerAdapter extends FragmentPagerAdapter {
         return mFragmentList.size();
     }
 
-    public void addFrag(Fragment fragment, String title) {
+    public void addFrag(Fragment fragment, int i, CarCar c) {
         mFragmentList.add(fragment);
-        mFragmentTitleList.add(title);
+        mFragmentTitleList.add(i+":"+c.getName());
+
+        Bundle args = new Bundle();
+        args.putInt("num", i);
+        args.putSerializable("car", c);
+        fragment.setArguments(args);
     }
 
     @Override
@@ -37,4 +43,5 @@ class ViewPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mFragmentTitleList.get(position);
     }
+
 }

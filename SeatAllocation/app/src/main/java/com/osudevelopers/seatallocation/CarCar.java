@@ -177,6 +177,14 @@ public class CarCar implements Serializable{
      * @return 名称
      */
     public String getName(){return name;}
+
+    /**
+     * 行数を返す
+     * @return 行数
+     */
+    public int getMaxColumn() {
+        return maxColumn;
+    }
 }
 
 class CarCoordinate implements Serializable{
