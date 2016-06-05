@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/resultRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            app:layout_widthPercent="33.333333%">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Hello"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@id/view1"
+            app:layout_widthPercent="33.333333%">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Hello"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@id/view2"
+            app:layout_widthPercent="33.333333%">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Hello"/>
+        </FrameLayout>
+    </android.support.percent.PercentRelativeLayout>
+</LinearLayout>
