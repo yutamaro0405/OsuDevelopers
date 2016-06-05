@@ -1,16 +1,33 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/resultScrollView"
-            tools:context="com.osudevelopers.seatallocation.ResultFragment">
+<ScrollView
+    android:id="@+id/resultScrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.osudevelopers.seatallocation.ResultFragment">
 
-
-    <TableLayout
-        android:id="@+id/resultContainer"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </TableLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+
+        <TextView
+            android:id="@+id/resultCarName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp"
+            android:paddingBottom="10dp"/>
+
+        <TableLayout
+            android:id="@+id/resultContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TableLayout>
+    </LinearLayout>
 
 
 </ScrollView>

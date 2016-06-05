@@ -24,9 +24,9 @@ public class ResultActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         ArrayList<CarCar> listCar = (ArrayList<CarCar>) intent.getSerializableExtra(CarSelectionActivity.EXTRA_LISTCAR);
-        this.listCar=listCar;
+        this.listCar = listCar;
 
-        if(listCar != null) {
+        if (listCar != null) {
             mNumCar = listCar.size();
         }
 
@@ -39,11 +39,11 @@ public class ResultActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-int i=0;
-for(CarCar c:listCar){
-    i++;
-    adapter.addFrag(new ResultFragment(), i,c);
-}
+        int i = 0;
+        for (CarCar c : listCar) {
+            i++;
+            adapter.addFrag(new ResultFragment(), i, c);
+        }
 
         viewPager.setAdapter(adapter);
     }

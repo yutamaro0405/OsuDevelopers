@@ -21,34 +21,38 @@ public class ResultFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_result, container, false);
         ViewGroup vg = (ViewGroup) root.findViewById(R.id.resultContainer);
 
-        CarCar car=(CarCar) getArguments().getSerializable("car");
-        int pageNum=getArguments().getInt("num");
-        for(int i=0;i<car.getMaxColumn();i++){
+        TextView textViewResultCarName = (TextView) root.findViewById(R.id.resultCarName);
+
+        CarCar car = (CarCar) getArguments().getSerializable("car");
+
+        textViewResultCarName.setText(car.getName());
+        int pageNum = getArguments().getInt("num");
+        for (int i = 0; i < car.getMaxColumn(); i++) {
             getActivity().getLayoutInflater().inflate(R.layout.result_row_3colomns, vg);
             //TextView sss
             //sss.setText(car.getCoordinate());
         }
 
-        for(int i=0;i<car.getLoadPeople();i++){
-            CarCoordinate coordinate=car.getCoordinate(i);
-            LinearLayout tr=(LinearLayout)vg.getChildAt(coordinate.getColumn());
-            TextView tv=null;
-            switch (coordinate.getRow()){
+        for (int i = 0; i < car.getLoadPeople(); i++) {
+            CarCoordinate coordinate = car.getCoordinate(i);
+            LinearLayout tr = (LinearLayout) vg.getChildAt(coordinate.getColumn());
+            TextView tv = null;
+            switch (coordinate.getRow()) {
                 case 0:
-                    tv =(TextView)tr.findViewById(R.id.name1);
+                    tv = (TextView) tr.findViewById(R.id.name1);
                     break;
                 case 1:
-                    tv =(TextView)tr.findViewById(R.id.name2);
+                    tv = (TextView) tr.findViewById(R.id.name2);
                     break;
                 case 2:
-                    tv =(TextView)tr.findViewById(R.id.name3);
+                    tv = (TextView) tr.findViewById(R.id.name3);
                     break;
             }
-            CarPeople cp=car.getSeatMap().get(i);
-            if(cp==null){
+            CarPeople cp = car.getSeatMap().get(i);
+            if (cp == null) {
                 tv.setText("");
 
-            }else{
+            } else {
                 tv.setText(cp.name);
 
             }
