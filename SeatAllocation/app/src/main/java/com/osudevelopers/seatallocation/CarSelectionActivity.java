@@ -21,7 +21,9 @@ public class CarSelectionActivity extends AppCompatActivity implements Serializa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_selection);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("台数の選択");
         setSupportActionBar(toolbar);
+
 
     }
 
