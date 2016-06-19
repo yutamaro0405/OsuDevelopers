@@ -51,6 +51,16 @@ public class CarPeoplesActivity extends AppCompatActivity{
             return;
         }
 
+        int maxpassengers = 0;
+        for (CarCar car : listCar) {
+            maxpassengers = maxpassengers + car.getLoadPeople();
+        }
+
+        if (num>maxpassengers){
+            Toast.makeText(this, this.getString(R.string.error_peopleCantRide), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         // TableLayoutのグループを取得
         ViewGroup vg = (ViewGroup) findViewById(R.id.TableLayout);
 
