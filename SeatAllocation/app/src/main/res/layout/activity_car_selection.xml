@@ -27,14 +27,6 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:text=" 1.Select Number of Cars\n 2.Push Bottom Button"
-            android:textColor="@color/colorAccent"
-            android:textSize="24sp"/>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -51,92 +43,117 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp">
+                    android:orientation="horizontal">
+
+
+
 
                     <ImageView
-                        android:id="@+id/icon5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/five_seats"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="vertical"
-                        android:layout_weight="1">
+                        android:paddingLeft="5dp">
 
                         <TextView
                             android:id="@+id/name5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="5-Seater"
+                            android:text="5人乗り"
                             android:textSize="24sp"/>
 
                         <TextView
                             android:id="@+id/loc5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="2-3 from the front"
+                            android:text="前から2人・3人"
                             android:textColor="#999999"
                             android:textSize="16sp"/>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="24dp"
-                        android:gravity="center"
-                        android:text="Cars#:"
-                        android:textSize="24dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="24dp"
+                            android:gravity="center"
+                            android:text="台数:"
+                            android:textSize="24dp"/>
 
 
-                    <Spinner
-                        android:id="@+id/spinner5"
-                        android:layout_width="60dp"
-                        android:layout_height="match_parent"
-                        android:entries="@array/NumOfCars"
-                        android:gravity="center"/>
+                        <Spinner
+                            android:id="@+id/spinner5"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:entries="@array/NumOfCars"
+                            android:gravity="center"/>
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorAccent" />
+                </LinearLayout>
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp">
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/icon7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/seven_seats"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="vertical"
-                        android:layout_weight="1">
+                        android:paddingLeft="5dp" >
 
                         <TextView
                             android:id="@+id/name7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="7-Seater"
+                            android:text="7人乗り"
                             android:textSize="24sp"/>
 
                         <TextView
                             android:id="@+id/loc7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="2-3-3 from the front"
+                            android:text="前から2人・3人・2人"
                             android:textColor="#999999"
                             android:textSize="16sp"/>
                     </LinearLayout>
@@ -145,12 +162,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="24dp"
                             android:gravity="center"
-                            android:text="Cars#:"
+                            android:text="台数:"
                             android:textSize="24dp"/>
 
 
@@ -176,10 +194,10 @@
                 android:id="@+id/goCarPeoplesButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#1E90FF"
+                android:background="@color/colorPrimary"
                 android:onClick="goCarPeoples"
-                android:text="Select Passengers#"
-                android:textColor="#FFFFFF"
+                android:text="次へ：メンバーを設定"
+                android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
         </LinearLayout>
