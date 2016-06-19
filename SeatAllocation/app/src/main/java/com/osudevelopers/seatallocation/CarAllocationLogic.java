@@ -154,10 +154,17 @@ public class CarAllocationLogic {
         /**
          * 乱数の関係で漏れた人を救う
          */
+        int minPassenger=9999;
+        for(CarCar c:input){
+            int nextIndex=c.getNextIndex();
+            if(nextIndex==-1){continue;}
+            minPassenger=c.getNextIndex()<minPassenger ? c.getNextIndex():minPassenger;
+        }
         while (passengers.size() > 0) {
+
             Iterator<CarCar> it = input.iterator();
             CarCar car = it.next();
-            while (it.hasNext() && car.getNextIndex() == -1) {
+            while (it.hasNext() && car.getNextIndex()!=minPassenger) {
                 car = it.next();
             }
             CarPeople cp = passengers.iterator().next();
