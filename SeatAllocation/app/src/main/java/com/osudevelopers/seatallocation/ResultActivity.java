@@ -54,7 +54,7 @@ public class ResultActivity extends AppCompatActivity {
     public void changeHandle(View view) {
         PagerAdapter cvc = mViewPager.getAdapter();
         System.out.println(mViewPager.getAdapter());
-        ((ResultFragment)(cvc.instantiateItem(mViewPager,0))).changeDriver();
+        ((ResultFragment)(cvc.instantiateItem(mViewPager,mViewPager.getCurrentItem()))).changeDriver();
         System.out.println(mViewPager.getAdapter());
 
     }

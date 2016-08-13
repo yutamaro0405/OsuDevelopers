@@ -15,17 +15,29 @@ public class ResultFragment extends Fragment {
     public ResultFragment() {
         // Required empty public constructor
     }
+    ViewGroup vg;
+    CarCar car;
+    GradientDrawable noDriver;
+    GradientDrawable driver;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        isLeftDriver=false;
+        driver = new GradientDrawable();
+        noDriver = new GradientDrawable();
+        noDriver.setColor(0x00000000); //white background
+        noDriver.setStroke(1, 0xFF000000); //black border with full opacity
+        noDriver.setCornerRadius(50);
+        driver.setColor(0xFF87CEFA); //white background
+        driver.setStroke(1, 0xFF000000); //black border with full opacity
+        driver.setCornerRadius(50);
         View root = inflater.inflate(R.layout.fragment_result, container, false);
-        ViewGroup vg = (ViewGroup) root.findViewById(R.id.resultContainer);
+        vg = (ViewGroup) root.findViewById(R.id.resultContainer);
 
         TextView textViewResultCarName = (TextView) root.findViewById(R.id.resultCarName);
 
-        CarCar car = (CarCar) getArguments().getSerializable("car");
+        car = (CarCar) getArguments().getSerializable("car");
 
         textViewResultCarName.setText(car.getName());
         int pageNum = getArguments().getInt("num");
@@ -61,22 +73,110 @@ public class ResultFragment extends Fragment {
                 tv.setText("");
 
             } else {
-                tv.setText(cp.name);
-
+                if(i==0){
+                    tv.setText("Driver:\n"+cp.name);
+                }else{
+                    tv.setText(cp.name);
+                }
             }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                tv.setBackground(border);
-            } else {
-                tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
+
+            if(i==0){
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    tv.setBackground(driver);
+                } else {
+                    tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
+                    tv.setBackgroundColor(0xFF87CEFA);
+                }
+
+            }else{
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    tv.setBackground(noDriver);
+                } else {
+                    tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
+                    tv.setBackgroundColor(0x00000000);
+                }
             }
         }
         return root;
     }
 
-    boolean isLeftDriver=false;
+    boolean isLeftDriver;
 
     public void changeDriver() {
-       // LinearLayout tr = (LinearLayout) vg.getChildAt(coordinate.getColumn());
+        for(int i=0;i<2;i++){
+
+        CarCoordinate coordinate = car.getCoordinate(i);
+        LinearLayout tr = (LinearLayout) vg.getChildAt(coordinate.getColumn());
+        TextView tv = null;
+            if(isLeftDriver){
+                switch (coordinate.getRow()) {
+                    case 0:
+                        tv = (TextView) tr.findViewById(R.id.name1);
+                        break;
+                    case 1:
+                        tv = (TextView) tr.findViewById(R.id.name2);
+                        break;
+                    case 2:
+                        tv = (TextView) tr.findViewById(R.id.name3);
+                        break;
+                }
+            }else{
+                switch (coordinate.getRow()) {
+                    case 0:
+                        tv = (TextView) tr.findViewById(R.id.name3);
+                        break;
+                    case 1:
+                        tv = (TextView) tr.findViewById(R.id.name2);
+                        break;
+                    case 2:
+                        tv = (TextView) tr.findViewById(R.id.name1);
+                        break;
+                }
+            }
+        CarPeople cp = car.getSeatMap().get(i);
+
+        if (cp == null) {
+            tv.setText("");
+
+        } else {
+            if(i==0){
+                tv.setText("Driver:\n"+cp.name);
+            }else{
+                tv.setText(cp.name);
+            }
+
+        }
+            //ここから色替え
+
+
+            if(i==0){
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    tv.setBackground(driver);
+                } else {
+                    tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
+                    tv.setBackgroundColor(0xFF87CEFA);
+                }
+
+            }else{
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    tv.setBackground(noDriver);
+                } else {
+                    tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
+                    tv.setBackgroundColor(0x00000000);
+                }
+            }
+
+            //ここまで色替え
+
+
+        }
+        if(isLeftDriver){isLeftDriver=false;}else{isLeftDriver=true;}
+
+
+
+
+
+
        // (TextView) tr.findViewById(R.id.name1);
     }
 }
