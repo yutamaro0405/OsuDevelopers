@@ -107,7 +107,7 @@ public class ResultFragment extends Fragment {
     boolean isLeftDriver;
 
     public void changeDriver() {
-        for(int i=0;i<2;i++){
+        for(int i=0;i<car.getLoadPeople();i++){
 
         CarCoordinate coordinate = car.getCoordinate(i);
         LinearLayout tr = (LinearLayout) vg.getChildAt(coordinate.getColumn());
