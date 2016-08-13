@@ -3,9 +3,11 @@ package com.osudevelopers.seatallocation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -49,4 +51,11 @@ public class ResultActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    public void changeHandle(View view) {
+        PagerAdapter cvc = mViewPager.getAdapter();
+        System.out.println(mViewPager.getAdapter());
+        ((ResultFragment)(cvc.instantiateItem(mViewPager,0))).changeDriver();
+        System.out.println(mViewPager.getAdapter());
+
+    }
 }
