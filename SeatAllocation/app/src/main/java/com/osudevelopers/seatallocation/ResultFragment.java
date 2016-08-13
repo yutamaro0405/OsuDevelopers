@@ -72,4 +72,11 @@ public class ResultFragment extends Fragment {
         }
         return root;
     }
+
+    boolean isLeftDriver=false;
+
+    public void changeDriver() {
+       // LinearLayout tr = (LinearLayout) vg.getChildAt(coordinate.getColumn());
+       // (TextView) tr.findViewById(R.id.name1);
+    }
 }
