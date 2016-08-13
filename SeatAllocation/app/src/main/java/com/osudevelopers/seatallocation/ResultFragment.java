@@ -19,6 +19,8 @@ public class ResultFragment extends Fragment {
     CarCar car;
     GradientDrawable noDriver;
     GradientDrawable driver;
+    int driverBackColor=0x7FFF4081;
+    int noDriverBackColor=0x7F4169e1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,10 +28,12 @@ public class ResultFragment extends Fragment {
         isLeftDriver=false;
         driver = new GradientDrawable();
         noDriver = new GradientDrawable();
-        noDriver.setColor(0x00000000); //white background
+
+
+        noDriver.setColor(noDriverBackColor); //white background
         noDriver.setStroke(1, 0xFF000000); //black border with full opacity
         noDriver.setCornerRadius(50);
-        driver.setColor(0xFF87CEFA); //white background
+        driver.setColor(driverBackColor); //white background
         driver.setStroke(1, 0xFF000000); //black border with full opacity
         driver.setCornerRadius(50);
         View root = inflater.inflate(R.layout.fragment_result, container, false);
@@ -85,7 +89,7 @@ public class ResultFragment extends Fragment {
                     tv.setBackground(driver);
                 } else {
                     tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
-                    tv.setBackgroundColor(0xFF87CEFA);
+                    tv.setBackgroundColor(driverBackColor);
                 }
 
             }else{
@@ -93,7 +97,7 @@ public class ResultFragment extends Fragment {
                     tv.setBackground(noDriver);
                 } else {
                     tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
-                    tv.setBackgroundColor(0x00000000);
+                    tv.setBackgroundColor(noDriverBackColor);
                 }
             }
         }
@@ -154,7 +158,7 @@ public class ResultFragment extends Fragment {
                     tv.setBackground(driver);
                 } else {
                     tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
-                    tv.setBackgroundColor(0xFF87CEFA);
+                    tv.setBackgroundColor(driverBackColor);
                 }
 
             }else{
@@ -162,7 +166,7 @@ public class ResultFragment extends Fragment {
                     tv.setBackground(noDriver);
                 } else {
                     tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
-                    tv.setBackgroundColor(0x00000000);
+                    tv.setBackgroundColor(noDriverBackColor);
                 }
             }
 
