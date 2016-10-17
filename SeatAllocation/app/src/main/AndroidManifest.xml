@@ -3,16 +3,18 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_car"
-        android:label="@string/title_activity_car_peoples"
+        android:label="@string/appName"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".CarSelectionActivity"
-            android:label="@string/title_activity_car_selection"
+            android:label="@string/appName"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
+            <intent-filter
+                android:label="@string/appName">
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -20,12 +22,12 @@
         </activity>
         <activity
             android:name=".CarPeoplesActivity"
-            android:label="@string/title_activity_car_peoples"
+            android:label="@string/appName"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".ResultActivity"
-            android:label="@string/title_activity_result"
+            android:label="@string/appName"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

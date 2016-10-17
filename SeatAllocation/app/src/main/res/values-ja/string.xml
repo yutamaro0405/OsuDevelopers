@@ -1,0 +1,44 @@
+<resources>
+    <string name="appName">CarSeats</string>
+    <string name="title_carSelectionActivity">台数の選択</string>
+    <string name="title_carPeoplesActivity">メンバーの選択</string>
+    <string name="title_resultActivity">座席割り結果</string>
+
+    <string name="jaNumOfCar">台目</string>
+    <string name="enNumOfCar"></string>
+
+    <string name="seaterFive">5人乗り</string>
+    <string name="seaterFiveDes">前から2人・3人</string>
+    <string name="seaterSeven">7人乗り</string>
+    <string name="seaterSevenDes">前から2人・3人・2人</string>
+    <string name="numOfCar">台数:</string>]
+
+    <string name="name">氏名</string>
+    <string name="driver">ドライバー</string>
+    <string name="apply">適用</string>
+    <string name="totalPassanger">トータル乗員人数</string>
+
+    <string name="bottomButtonCarSelection">次へ：メンバーを設定</string>
+    <string name="bottomButtonCarPeoples">次へ：座席割り結果</string>
+    <string name="bottomButtonResult">ハンドルの位置を切替</string>
+
+    <string name="error_noCarNull">車が選択されていません(null台)</string>
+    <string name="error_noCarZero">車が選択されていません(0台)</string>
+    <string name="error_noPeopleNull">人が選択されていません(null人)</string>
+    <string name="error_noPeopleZero">人が選択されていません(0人)</string>
+    <string name="error_carMoreThanPeople">車が人数より多い</string>
+    <string name="error_sameCarExists">同じ車が存在します</string>
+    <string name="error_samePeopleExists">同じ人が存在します</string>
+    <string name="error_peopleCantRide">人が多すぎます</string>
+    <string name="error_driverIsShortage">ドライバが足りません</string>
+    <string name="error_noDriver">ドライバがいません</string>
+
+    <string-array name="NumOfCars">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+</resources>

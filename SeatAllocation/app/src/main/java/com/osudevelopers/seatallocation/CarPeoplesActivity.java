@@ -4,12 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +25,7 @@ public class CarPeoplesActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_peoples);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("メンバーの設定");
+        toolbar.setTitle(R.string.title_carPeoplesActivity);
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
@@ -43,12 +42,12 @@ public class CarPeoplesActivity extends AppCompatActivity{
         try {
             num = Integer.parseInt(number.getText().toString());
         }catch (NumberFormatException e){
-            Toast.makeText(this, "人数が入力されていません", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_noPeopleZero, Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (!(0<=num && num<100)){
-            Toast.makeText(this, "人数が多すぎるため処理できません", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_peopleCantRide, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -58,7 +57,7 @@ public class CarPeoplesActivity extends AppCompatActivity{
         }
 
         if (num>maxpassengers){
-            Toast.makeText(this, this.getString(R.string.error_peopleCantRide), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_peopleCantRide, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -76,7 +75,8 @@ public class CarPeoplesActivity extends AppCompatActivity{
             // 追加した行に存在する部品の文字設定
             TableRow tr = (TableRow) vg.getChildAt(i);
             String str = String.format(Locale.getDefault(), "Member %d", i + 1);
-            ((EditText)(tr.getChildAt(0))).setText(str);
+            LinearLayout ll = (LinearLayout)tr.getChildAt(0);
+            ((EditText)(ll.getChildAt(0))).setText(str);
 
         }
     }
@@ -93,15 +93,16 @@ public class CarPeoplesActivity extends AppCompatActivity{
             //行ごとに人を登録する
             for(int i=0;i<vg.getChildCount();i++){
                 TableRow row = (TableRow)vg.getChildAt(i);
-                EditText name = (EditText)(row.getChildAt(0));
-                CheckBox isDriver=(CheckBox)(row.getChildAt(1));
+                LinearLayout ll = (LinearLayout)row.getChildAt(0);
+                EditText name = (EditText)(ll.getChildAt(0));
+                CheckBox isDriver=(CheckBox)(ll.getChildAt(1));
                 peoples.add(new CarPeople(name.getText().toString(), isDriver.isChecked()));
             }
             //ロジック実行
             result=CarAllocationLogic.exec(this, listCar, peoples);
         }catch(CarException carException){
             //エラー通知して次画面にいかない
-            Toast.makeText(this, "エラー："+carException.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR："+carException.getMessage(), Toast.LENGTH_SHORT).show();
             return;
         }
         //結果を次画面に渡す
@@ -110,28 +111,5 @@ public class CarPeoplesActivity extends AppCompatActivity{
         startActivity(intent);
 
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_car_peoples, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
 
 }

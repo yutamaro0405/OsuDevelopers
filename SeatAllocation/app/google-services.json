@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "633310617641",
+    "firebase_url": "https://carseats-1251b.firebaseio.com",
+    "project_id": "carseats-1251b",
+    "storage_bucket": "carseats-1251b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633310617641:android:ee7fcbbcbc473619",
+        "android_client_info": {
+          "package_name": "com.osudevelopers.seatallocation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633310617641-va51d3cf8df06lk6hgu5i70fkeadvv6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL9xA5PgzJ1bParLE-XNPjOGRLTL_3C4o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

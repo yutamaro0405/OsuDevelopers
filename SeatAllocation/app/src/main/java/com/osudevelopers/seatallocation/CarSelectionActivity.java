@@ -8,19 +8,24 @@ import android.view.View;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CarSelectionActivity extends AppCompatActivity implements Serializable{
     public final static String EXTRA_LISTCAR = "com.osudevelopers.seatallocation.LISTCAR";
+    private final CarSelectionActivity self = this;
+    private FirebaseAnalytics mAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_selection);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("台数の選択");
+        toolbar.setTitle(R.string.title_carSelectionActivity);
         setSupportActionBar(toolbar);
+        mAnalytics = FirebaseAnalytics.getInstance(self);
 
 
     }

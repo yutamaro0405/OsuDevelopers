@@ -26,7 +26,7 @@ class ViewPagerAdapter extends FragmentPagerAdapter {
 
     public void addFrag(Fragment fragment, int i, CarCar c) {
         mFragmentList.add(fragment);
-        mFragmentTitleList.add(i+"台目");
+        mFragmentTitleList.add(MyApplication.getContext().getString(R.string.enNumOfCar) + i + MyApplication.getContext().getString(R.string.jaNumOfCar));
 
         Bundle args = new Bundle();
         args.putInt("num", i);

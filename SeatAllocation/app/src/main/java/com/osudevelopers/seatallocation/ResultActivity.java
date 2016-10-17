@@ -22,7 +22,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("座席割り結果");
+        toolbar.setTitle(R.string.title_resultActivity);
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();

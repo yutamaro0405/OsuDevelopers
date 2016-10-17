@@ -1,19 +1,37 @@
 <resources>
-    <string name="title_activity_car_peoples">SeatAllocation</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="appName">CarSeats</string>
+    <string name="title_carSelectionActivity">Select the number of car</string>
+    <string name="title_carPeoplesActivity">Select the member</string>
+    <string name="title_resultActivity">Result</string>
 
-    <string name="title_activity_car_selection">CarSelectionActivity</string>
-    <string name="error_noCarNull">車が定義されていません(null人)</string>
-    <string name="error_noCarZero">車が定義されていません(0人)</string>
-    <string name="error_noPeopleNull">人が定義されていません(null人)</string>
-    <string name="error_noPeopleZero">人が定義されていません(0人)</string>
-    <string name="error_carMoreThanPeople">車が人数より多い</string>
-    <string name="error_sameCarExists">同じ車が存在します</string>
-    <string name="error_samePeopleExists">同じ人が存在します</string>
-    <string name="error_peopleCantRide">人が多すぎます</string>
-    <string name="error_driverIsShortage">ドライバが足りません</string>
-    <string name="error_noDriver">ドライバがいません</string>
+    <string name="jaNumOfCar"></string>
+    <string name="enNumOfCar">No.</string>
+
+    <string name="seaterFive">5-seater</string>
+    <string name="seaterFiveDes">From the front : 2-3</string>
+    <string name="seaterSeven">7-seater</string>
+    <string name="seaterSevenDes">From the front : 2-3-2</string>
+    <string name="numOfCar">Num:</string>
+
+    <string name="name">name</string>
+    <string name="driver">driver</string>
+    <string name="apply">apply</string>
+    <string name="totalPassanger">Total number of people.</string>
+
+    <string name="bottomButtonCarSelection">NEXT : Select Member</string>
+    <string name="bottomButtonCarPeoples">NEXT : Result</string>
+    <string name="bottomButtonResult">switch the handle position</string>
+
+    <string name="error_noCarNull">Not selected car</string>
+    <string name="error_noCarZero">Not selected car</string>
+    <string name="error_noPeopleNull">Not selected people</string>
+    <string name="error_noPeopleZero">Not selected people</string>
+    <string name="error_carMoreThanPeople">The number of cars is too many</string>
+    <string name="error_sameCarExists">Same car exists</string>
+    <string name="error_samePeopleExists">Same people exists</string>
+    <string name="error_peopleCantRide">The number of people is too many</string>
+    <string name="error_driverIsShortage">The driver is not enough</string>
+    <string name="error_noDriver">The driver is not enough</string>
 
     <string-array name="NumOfCars">
         <item>0</item>
@@ -23,8 +41,7 @@
         <item>4</item>
         <item>5</item>
     </string-array>
-    <string name="title_activity_result">ResultActivity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

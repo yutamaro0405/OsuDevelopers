@@ -1,5 +1,7 @@
 package com.osudevelopers.seatallocation;
 
+import android.app.Application;
+
 import java.io.Serializable;
 
 /**
@@ -17,7 +19,7 @@ public class Car_Wish7 extends CarCar implements Serializable {
      * @throws CarException
      */
     Car_Wish7() throws CarException {
-        super("7人乗り",7,3,3);
+        super(MyApplication.getContext().getString(R.string.seaterSeven),7,3,3);
         //indexは着席順
         addCoordinate(0, 2, 0);
         addCoordinate(1, 0, 0);

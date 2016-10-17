@@ -16,7 +16,7 @@ public class Car_Sedan5 extends CarCar implements Serializable{
      * @throws CarException
      */
     Car_Sedan5() throws CarException {
-        super("5人乗り",5,3,2);
+        super(MyApplication.getContext().getString(R.string.seaterFive),5,3,2);
         //indexは着席順
         addCoordinate(0, 2, 0);
         addCoordinate(1, 0, 0);
